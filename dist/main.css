@@ -68,21 +68,15 @@ body {
   }
 }
 
-@media screen and (max-width: 1100px) {
-  body {
-    font-size: 13px;
-  }
-}
-
 @media screen and (max-width: 1001px) {
   body {
-    font-size: 15px;
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 690px) {
   body {
-    font-size: 14px;
+    font-size: 25px;
   }
 }
 
@@ -134,7 +128,6 @@ body {
 @media screen and (max-width: 1001px) {
   .body-wrapper {
     width: 80%;
-    height: auto;
   }
 }
 
