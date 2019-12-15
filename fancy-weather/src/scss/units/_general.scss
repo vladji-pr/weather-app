@@ -7,7 +7,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 
-  @media screen and (max-width: 1180px) {
+  @media (max-width: 1180px) {
     font-size: 15px;
   }
 
@@ -15,31 +15,31 @@ body {
   //   font-size: 13px;
   // }
 
-  @media screen and (max-width: 1001px) {
+  @media (max-width: 1001px) {
     font-size: 20px;
   }
 
-  @media screen and (max-width: 690px) {
+  @media (max-width: 690px) {
     font-size: 25px;
   }
 
-  @media screen and (max-width: 540px) {
+  @media (max-width: 540px) {
     font-size: 12px;
   }
 
-  @media screen and (max-width: 480px) {
+  @media (max-width: 480px) {
     font-size: 11px;
   }
 
-  @media screen and (max-width: 440px) {
+  @media (max-width: 440px) {
     font-size: 10px;
   }
 
-  @media screen and (max-width: 399px) {
+  @media (max-width: 399px) {
     font-size: 9px;
   }
 
-  @media screen and (max-width: 340px) {
+  @media (max-width: 340px) {
     font-size: 8px;
   }
 }
@@ -51,23 +51,23 @@ body {
   margin: 0 auto;
   padding: 4% 6%;
 
-  @media screen and (max-width: 1100px) {
+  @media (max-width: 1100px) {
     padding: 6%;
   }
 
-  @media screen and (max-width: 1001px) {
+  @media (max-width: 1001px) {
     width: 80%;
   }
 
-  @media screen and (max-width: 865px) {
+  @media (max-width: 864px) {
     width: 85%;
   }
 
-  @media screen and (max-width: 770px) {
+  @media (max-width: 770px) {
     width: 90%;
   }
 
-  @media screen and (max-width: 690px) {
+  @media (max-width: 690px) {
     width: 100%;
   }
 }
