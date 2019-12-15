@@ -74,9 +74,16 @@ export default class Layout {
     const markup = `
         <div class="content">
           <p class="content__head">${today.city}, ${today.country}</p>
-          <p class="content__date"><span data-bel="${weatherData.weekDayENshort}">
-              ${today.weekday}</span>&nbsp;${today.day}&nbsp;<span data-bel="${weatherData.monthEN}">${today.month}</span>
-              &emsp;<span class="content__clock">${today.time}</span></p>
+          <div class="content__date flow-blocks-wrapper">
+            <p>
+              <span data-bel="${weatherData.weekDayENshort}">${today.weekday}</span>
+              &nbsp;${today.day}&nbsp;
+              <span data-bel="${weatherData.monthEN}">${today.month}</span>
+            </p>
+            <p>
+              &emsp;<span class="content__clock">${today.time}</span>
+            </p>
+          </div>
           <div class="today flex-block">
             <p class="today__temperature flex-block digit-big"><span data-temp>${today.temperature}</span><span class="deg-average">&deg;</span></p>
             <div class="today__details-wrap">
