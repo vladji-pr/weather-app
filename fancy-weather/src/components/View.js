@@ -94,9 +94,14 @@ export default class Layout {
             </p>
           </div>
           <div class="today flex-block">
-            <p class="today__temperature flex-block digit-big"><span data-temp>${today.temperature}</span><span class="deg-average">&deg;</span></p>
-            <div class="today__details-wrap">
+            <div class="today__inner flex-block">
+              <div class="today__temperature flex-block">
+                <div class="digit-big" data-temp>${today.temperature}</div>
+                <div class="deg-average">&deg;</div>
+              </div>
               <div class="today__icon-weather"></div>
+            </div>
+            <div class="today__details-wrap">
               <p class="today__details">${today.summary}</p>
               <p class="today__details"><span data-lang="todayFeels"></span><span data-temp>${today.apparentTemperature}</span><span>&nbsp;&deg;</span></p>
               <p class="today__details"><span data-lang="todayWind"></span><span>&nbsp;${today.windSpeed}&nbsp;m/s</span></p>
@@ -107,8 +112,8 @@ export default class Layout {
         </div>
         <aside class="map-wrapper">
           <div id="map"></div>
-          <p class="map-coords">Latitude:&nbsp;${weatherData.latitude}</p>
-          <p class="map-coords">Longtitude:&nbsp;${weatherData.longtitude}</p>
+          <p class="map-coords"><span class="txt-bold-600">Latitude:&nbsp;</span>${weatherData.latitude}</p>
+          <p class="map-coords"><span class="txt-bold-600">Longtitude:&nbsp;</span>${weatherData.longtitude}</p>
         </aside>
     `;
     this.main.innerHTML = markup;

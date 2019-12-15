@@ -143,18 +143,22 @@ body {
       flex-flow: wrap;
 }
 
-button {
-  cursor: pointer;
-}
-
 .flex-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
+.txt-bold-600 {
+  font-weight: 600;
+}
+
+button {
+  cursor: pointer;
+}
+
 .controls-block {
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .control-bnt-wrap {
@@ -305,7 +309,7 @@ button {
 }
 
 .content {
-  width: 50%;
+  width: 60%;
   font-weight: 600;
   color: #fff;
   text-shadow: 0 0 3px #888;
@@ -319,27 +323,20 @@ button {
 
 .content__head {
   font-size: 2.8em;
-  margin: 6% 0;
 }
 
 .content__date {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 3%;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
   font-size: 2em;
 }
 
 .content__day {
-  margin: 0 5% 5% 0;
-}
-
-.today {
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  padding: 15% 0;
+  margin: 0 5% 3% 0;
 }
 
 .digit-big {
@@ -351,32 +348,65 @@ button {
   font-size: 6rem;
 }
 
+.today {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 10% 0;
+}
+
+@media (max-width: 690px) {
+  .today {
+    display: block;
+  }
+}
+
+.today__inner {
+  position: relative;
+}
+
 .today__temperature {
-  font-size: 14em;
+  margin-right: 30px;
+  font-size: 11em;
   line-height: 0.8;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 690px) {
   .today__temperature {
-    font-size: 12em;
+    font-size: 9em;
+  }
+}
+
+@media (max-width: 450px) {
+  .today__temperature {
+    font-size: 7em;
   }
 }
 
 .today__details-wrap {
   position: relative;
-  margin-left: 30px;
-  font-size: 1.3em;
+  margin-top: 30px;
+  font-size: 1.2em;
   text-transform: uppercase;
 }
 
 .today__icon-weather {
   position: absolute;
-  top: -60%;
+  top: -40%;
+  right: -100%;
   width: 100%;
   height: 50%;
   background-image: url("../assets/img/icon-weather.png");
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media (max-width: 690px) {
+  .today__icon-weather {
+    position: static;
+    width: 25%;
+    height: auto;
+  }
 }
 
 .today__details {
@@ -393,26 +423,26 @@ button {
   text-transform: uppercase;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 690px) {
   .daily__item-title {
     font-size: 1.2em;
   }
 }
 
-@media (max-width: 399px) {
+@media (max-width: 450px) {
   .daily__item-title {
     font-size: 1em;
   }
 }
 
-@media (max-width: 399px) {
-  .daily__item-title {
-    font-size: 1.2em;
-  }
-}
-
 .daily__item-temperature {
   font-size: 3.5em;
+}
+
+@media (max-width: 690px) {
+  .daily__item-temperature {
+    font-size: 2.5em;
+  }
 }
 
 .daily__item-icon-weather {
@@ -442,31 +472,31 @@ button {
 }
 
 .map-wrapper {
-  position: absolute;
-  right: 0;
   width: 40%;
-  height: 70%;
-  margin: 3%;
 }
 
 @media screen and (max-width: 1001px) {
   .map-wrapper {
-    position: static;
     width: 100%;
-    height: 300px;
     margin: 15% 0 0;
   }
 }
 
 #map {
   width: 100%;
-  height: 100%;
+  height: 70%;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 1001px) {
+  #map {
+    height: 300px;
+  }
 }
 
 .map-coords {
   padding: 5% 0 0;
-  font-size: 2em;
+  font-size: 1.5em;
   color: #fff;
 }
 

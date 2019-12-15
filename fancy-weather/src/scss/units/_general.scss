@@ -63,10 +63,14 @@ body {
   flex-flow: wrap;
 }
 
-button {
-  cursor: pointer;
-}
-
 .flex-block {
   display: flex;
+}
+
+.txt-bold-600 {
+  font-weight: 600;
+}
+
+button {
+  cursor: pointer;
 }
