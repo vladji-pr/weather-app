@@ -17,7 +17,6 @@ export default class Controller {
       await this.model.getGeoData(query);
     }
     this.contentPrepare();
-    console.log(this.searchBtn);
   }
 
   async contentPrepare() {
@@ -34,7 +33,6 @@ export default class Controller {
       this.model.clockInit(this.interface);
       this.model.initMap();
     } catch (err) {
-      console.log(err);
       this.interface.errorRender('Ooopss... Something went wrong.');
     }
   }
