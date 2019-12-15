@@ -55,6 +55,7 @@ table {
 }
 
 body {
+  height: 100vh;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   background-image: url(1dab69522a9a4cfeff6a1abe81670a48.png);
@@ -70,49 +71,31 @@ body {
 
 @media (max-width: 1001px) {
   body {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 690px) {
-  body {
-    font-size: 25px;
+    height: auto;
+    font-size: 18px;
   }
 }
 
 @media (max-width: 540px) {
   body {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 440px) {
-  body {
-    font-size: 10px;
+    font-size: 15px;
   }
 }
 
 @media (max-width: 399px) {
   body {
-    font-size: 9px;
+    font-size: 13px;
   }
 }
 
 @media (max-width: 340px) {
   body {
-    font-size: 8px;
+    font-size: 12px;
   }
 }
 
 .body-wrapper {
   width: 90%;
-  height: 100vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0 auto;
@@ -340,14 +323,23 @@ button {
 }
 
 .content__date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
   font-size: 2em;
+}
+
+.content__day {
+  margin: 0 5% 5% 0;
 }
 
 .today {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  padding: 20% 0;
+  padding: 15% 0;
 }
 
 .digit-big {
@@ -362,6 +354,12 @@ button {
 .today__temperature {
   font-size: 14em;
   line-height: 0.8;
+}
+
+@media (max-width: 440px) {
+  .today__temperature {
+    font-size: 12em;
+  }
 }
 
 .today__details-wrap {
@@ -393,6 +391,24 @@ button {
   margin-bottom: 10px;
   font-size: 1.5em;
   text-transform: uppercase;
+}
+
+@media (max-width: 440px) {
+  .daily__item-title {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 399px) {
+  .daily__item-title {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 399px) {
+  .daily__item-title {
+    font-size: 1.2em;
+  }
 }
 
 .daily__item-temperature {
@@ -446,6 +462,12 @@ button {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+}
+
+.map-coords {
+  padding: 5% 0 0;
+  font-size: 2em;
+  color: #fff;
 }
 
 .error-wrapper {
