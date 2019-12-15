@@ -407,11 +407,29 @@ button {
 }
 
 .daily__item-icon-weather {
-  width: 35%;
+  width: 55px;
   margin-left: 5%;
   background-image: url("../assets/img/icon-weather.png");
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media screen and (max-width: 540px) {
+  .daily__item-icon-weather {
+    width: 45px;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .daily__item-icon-weather {
+    width: 40px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .daily__item-icon-weather {
+    width: 35px;
+  }
 }
 
 .map-wrapper {

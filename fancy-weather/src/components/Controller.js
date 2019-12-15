@@ -27,9 +27,9 @@ export default class Controller {
 
       const langObj = this.model.getLang();
       this.interface.setContentLang(langObj);
-      if (this.model.lang === 'be') {
-        this.interface.setBelLang(langObj);
-      }
+
+      if (this.model.lang === 'be') this.interface.setBelLang(langObj);
+      if (this.model.tempDeg === 'fahrenheit') this.interface.switchDeg('fahrenheit');
 
       this.model.clockInit(this.interface);
       this.model.initMap();

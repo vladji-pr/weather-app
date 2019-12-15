@@ -22,7 +22,7 @@ const langBase = {
     todayHumidity: 'вільготнасць:',
     searchPlaceholder: 'Увядзіце месца',
     belDate: {
-      Mon: 'пнд', Tue: 'аўт', Wed: 'сер', Thu: 'чцв', Fri: 'пят', Sat: 'суб', Sun: 'няд', Monday: 'панядзелак', Tuesday: 'аўторак', Wednesday: 'серада', Thursday: 'чацьвер', Friday: 'пятніца', Saturday: 'субота', Sunday: 'нядзеля', January: 'студзень', February: 'люты', March: 'сакавік', April: 'красавік', May: 'травень', June: 'чэрвень', July: 'ліпень', August: 'жнівень', September: 'верасень', October: 'кастрычнік', November: 'лістапад', December: 'снежань',
+      mon: 'пнд', tue: 'аўт', wed: 'сер', thu: 'чцв', fri: 'пят', sat: 'суб', sun: 'няд', monday: 'панядзелак', tuesday: 'аўторак', wednesday: 'серада', thursday: 'чацьвер', friday: 'пятніца', saturday: 'субота', sunday: 'нядзеля', january: 'студзень', february: 'люты', march: 'сакавік', april: 'красавік', may: 'травень', june: 'чэрвень', july: 'ліпень', august: 'жнівень', september: 'верасень', october: 'кастрычнік', november: 'лістапад', december: 'снежань',
     },
   },
 };
@@ -52,7 +52,6 @@ export default class Model {
     this.TIME_CONST = 60; // seconds in min & min in hour
     this.MS_IN_SEC = 1000;
     this.MS_IN_MIN = 60000;
-    this.renderData = {};
   }
 
   checkDeg(deg) {
@@ -99,8 +98,6 @@ export default class Model {
       const latitude = data.results[0].geometry.lat.toFixed(4);
       const longtitude = data.results[0].geometry.lng.toFixed(4);
 
-      this.renderData.latitude = latitude;
-      this.renderData.longtitude = longtitude;
       this.latitude = +latitude;
       this.longtitude = +longtitude;
       this.location = `${latitude},${longtitude}`;
@@ -153,11 +150,11 @@ export default class Model {
     const temperature = Math.round(rawData.currently.temperature);
     const apparentTemperature = Math.round(rawData.currently.apparentTemperature);
     const windSpeed = Math.round(rawData.currently.windSpeed);
-    const humidity = (+rawData.currently.humidity * 100).toFixed(0);
+    const humidity = Math.round(+rawData.currently.humidity * 100);
     const daily = rawData.daily.data.slice(1, 4);
     const transformDaily = this.transformDaily(daily);
 
-    this.renderData = {
+    const renderData = {
       dataToday: {
         temperature,
         apparentTemperature,
@@ -169,17 +166,18 @@ export default class Model {
         day: this.day,
         month: this.month,
         time: this.time,
-        currenTime: rawData.currently.time,
         summary: rawData.currently.summary,
         icon: rawData.currently.icon,
       },
       dataDaily: transformDaily,
       weekDayENshort: this.weekDayEN,
       monthEN: this.monthEN,
+      latitude: this.latitude,
+      longtitude: this.longtitude,
     };
 
-    console.log('this.renderData', this.renderData);
-    return this.renderData;
+    console.log('renderData', renderData);
+    return renderData;
   }
 
   transformDaily(data) {
