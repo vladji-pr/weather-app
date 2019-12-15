@@ -33,7 +33,16 @@ export default class Layout {
     const mapCSS = document.createElement('link');
     mapCSS.href = 'https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css';
     mapCSS.rel = 'stylesheet';
-    document.head.append(mapCSS);
+
+    const metaViewport = document.createElement('meta');
+    metaViewport.name = 'viewport';
+    metaViewport.content = 'width=device-width, initial-scale=1.0';
+
+    const metaCompatible = document.createElement('meta');
+    metaCompatible.httpEquiv = 'X-UA-Compatible';
+    metaCompatible.content = 'ie=edge';
+
+    document.head.append(metaViewport, metaCompatible, mapCSS);
 
     this.mainContentRender(weatherData);
   }
@@ -74,14 +83,14 @@ export default class Layout {
     const markup = `
         <div class="content">
           <p class="content__head">${today.city}, ${today.country}</p>
-          <div class="content__date flow-blocks-wrapper">
-            <p>
+          <div class="content__date">
+            <p class="content__day">
               <span data-bel="${weatherData.weekDayENshort}">${today.weekday}</span>
               &nbsp;${today.day}&nbsp;
               <span data-bel="${weatherData.monthEN}">${today.month}</span>
             </p>
             <p>
-              &emsp;<span class="content__clock">${today.time}</span>
+              <span class="content__clock">${today.time}</span>
             </p>
           </div>
           <div class="today flex-block">
@@ -98,6 +107,8 @@ export default class Layout {
         </div>
         <aside class="map-wrapper">
           <div id="map"></div>
+          <p class="map-coords">Latitude:&nbsp;${weatherData.latitude}</p>
+          <p class="map-coords">Longtitude:&nbsp;${weatherData.longtitude}</p>
         </aside>
     `;
     this.main.innerHTML = markup;

@@ -19,12 +19,18 @@
 }
 
 .content__date {
+  display: flex;
+  flex-flow: wrap;
   font-size: 2em;
+}
+
+.content__day {
+  margin: 0 5% 5% 0;
 }
 
 .today {
   align-items: flex-end;
-  padding: 20% 0;
+  padding: 15% 0;
 }
 
 .digit-big {
@@ -39,6 +45,10 @@
 .today__temperature {
   font-size: 14em;
   line-height: 0.8;
+
+  @media (max-width: 440px) {
+    font-size: 12em;
+  }
 }
 
 .today__details-wrap {
@@ -72,6 +82,18 @@
   margin-bottom: 10px;
   font-size: 1.5em;
   text-transform: uppercase;
+
+  @media (max-width: 440px) {
+    font-size: 1.2em;
+  }
+
+  @media (max-width: 399px) {
+    font-size: 1em;
+  }
+
+  @media (max-width: 399px) {
+    font-size: 1.2em;
+  }
 }
 
 .daily__item-temperature {
