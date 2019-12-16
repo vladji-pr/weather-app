@@ -17,11 +17,13 @@ export default class Controller {
       await this.model.getGeoData(query);
     }
     this.contentPrepare();
+    console.log(this.searchBtn);
   }
 
   async contentPrepare() {
     try {
       const weatherData = await this.model.getWeatherData();
+      console.log('weatherData', weatherData);
       this.interface.renderApp(weatherData);
 
       const langObj = this.model.getLang();
@@ -33,6 +35,7 @@ export default class Controller {
       this.model.clockInit(this.interface);
       this.model.initMap();
     } catch (err) {
+      console.log('err', err);
       this.interface.errorRender('Ooopss... Something went wrong.');
     }
   }

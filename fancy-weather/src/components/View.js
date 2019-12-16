@@ -1,7 +1,8 @@
 import Controller from './Controller';
 
 export default class Layout {
-  constructor() {
+  constructor(skycons) {
+    this.icons = skycons(this);
     this.bodyWrapper = document.createElement('div');
     this.bodyWrapper.classList.add('body-wrapper');
 
@@ -100,6 +101,7 @@ export default class Layout {
                 <div class="deg-average">&deg;</div>
               </div>
               <div class="today__icon-weather"></div>
+              <canvas id="icon1" width="128" height="128"></canvas>
             </div>
             <div class="today__details-wrap">
               <p class="today__details">${today.summary}</p>
@@ -117,6 +119,12 @@ export default class Layout {
         </aside>
     `;
     this.main.innerHTML = markup;
+
+    const iconWeather = document.getElementById('icon1');
+    const { icons, Skycons } = this.icons;
+    console.log('view', icons, Skycons);
+    icons.add(iconWeather, Skycons.PARTLY_CLOUDY_DAY);
+    icons.play();
 
     const dailyWeatherBlock = document.querySelector('.daily');
 
