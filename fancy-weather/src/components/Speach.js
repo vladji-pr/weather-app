@@ -1,4 +1,4 @@
-const SpeechRecognition = null;
+// const SpeechRecognition = null;
 export default class Speach {
   // constructor() {
   //   this.start();
@@ -6,8 +6,9 @@ export default class Speach {
 
   start() {
     console.log(this);
-    window.SpeechRecognition = window.SpeechRecognition || window.webkit.SpeechRecognition;
+    // window.SpeechRecognition = window.SpeechRecognition || window.webkit.SpeechRecognition;
 
+    // eslint-disable-next-line no-undef
     const recognition = new SpeechRecognition();
     console.log(recognition);
     recognition.interimResults = true;
