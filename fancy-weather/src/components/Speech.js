@@ -1,5 +1,4 @@
-// const SpeechRecognition = null;
-export default class Speach {
+export default class Speech {
   // constructor() {
   //   this.start();
   // }
