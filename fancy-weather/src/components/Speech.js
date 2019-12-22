@@ -1,5 +1,6 @@
 export default class Speech {
   start() {
+    console.log(this);
     const recognition = new (window.SpeechRecognition
       || window.webkitSpeechRecognition || window.mozSpeechRecognition
       || window.msSpeechRecognition)();
@@ -11,13 +12,10 @@ export default class Speech {
     const div = document.createElement('div');
     document.body.append(div);
 
-    recognition.start();
+    // recognition.start();
 
     recognition.addEventListener('results', (e) => {
       console.log(e.results);
-      const p = document.createElement('p');
-      p.innerHTML = e.results;
-      div.append(p);
     });
   }
 }
