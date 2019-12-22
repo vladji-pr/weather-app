@@ -110,8 +110,8 @@ export default class Layout {
         </div>
         <aside class="map-wrapper">
           <div id="map"></div>
-          <p class="map-coords"><span class="txt-bold-600">Latitude:&nbsp;</span>${weatherData.latitude}</p>
-          <p class="map-coords"><span class="txt-bold-600">Longtitude:&nbsp;</span>${weatherData.longtitude}</p>
+          <p class="map-coords"><span class="txt-bold-600" data-lang="latitude"></span>${weatherData.latitude}</p>
+          <p class="map-coords"><span class="txt-bold-600" data-lang="longtitude"></span>${weatherData.longtitude}</p>
         </aside>
     `;
     this.main.innerHTML = markup;

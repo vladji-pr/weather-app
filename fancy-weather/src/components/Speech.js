@@ -1,19 +1,23 @@
 export default class Speech {
-  // constructor() {
-  //   this.start();
-  // }
-
   start() {
-    console.log(this);
-    // window.SpeechRecognition = window.SpeechRecognition || window.webkit.SpeechRecognition;
+    const recognition = new (window.SpeechRecognition
+      || window.webkitSpeechRecognition || window.mozSpeechRecognition
+      || window.msSpeechRecognition)();
 
-    // eslint-disable-next-line no-undef
-    const recognition = new SpeechRecognition();
     console.log(recognition);
     recognition.interimResults = true;
+    recognition.lang = 'en';
+    // recognition.continuous = true;
+    const div = document.createElement('div');
+    document.body.append(div);
+
+    recognition.start();
 
     recognition.addEventListener('results', (e) => {
       console.log(e.results);
+      const p = document.createElement('p');
+      p.innerHTML = e.results;
+      div.append(p);
     });
   }
 }

@@ -41,13 +41,12 @@ export default class Controller {
       await this.model.getCurrentLocationIP();
     }
     this.contentPrepare();
-    console.log(this.store);
   }
 
   async contentPrepare() {
     const weatherData = await this.model.getWeatherData();
     this.interface.mainContentRender(weatherData);
-    // this.setBackground();
+    this.setBackground();
 
     const langObj = this.model.getLang();
     this.interface.setContentLang(langObj);
@@ -78,6 +77,12 @@ export default class Controller {
 
     this.searchField.addEventListener('keyup', (e) => {
       if (e.code === 'Enter' || e.code === 'NumpadEnter') this.start();
+    });
+
+    document.body.addEventListener('click', (e) => {
+      if (!e.target.closest('.expand-list-wrapper') && this.interface.isLangListExpand) {
+        this.interface.langMenuToggle();
+      }
     });
   }
 

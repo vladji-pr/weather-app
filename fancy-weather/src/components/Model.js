@@ -9,6 +9,8 @@ const langBase = {
     windSpeed: 'm/s',
     todayHumidity: 'humidity:',
     searchPlaceholder: 'Type place please',
+    latitude: 'Latitude:&nbsp;',
+    longtitude: 'Longtitude:&nbsp;',
   },
   ru: {
     lang: 'ru',
@@ -18,6 +20,8 @@ const langBase = {
     windSpeed: 'м/сек',
     todayHumidity: 'влажность:',
     searchPlaceholder: 'Введите место',
+    latitude: 'Широта:&nbsp;',
+    longtitude: 'Долгота:&nbsp;',
   },
   be: {
     lang: 'be',
@@ -27,6 +31,8 @@ const langBase = {
     windSpeed: 'м/сек',
     todayHumidity: 'вільготнасць:',
     searchPlaceholder: 'Увядзіце месца',
+    latitude: 'Шырата:&nbsp;',
+    longtitude: 'Даўгата:&nbsp;',
     belDate: {
       mon: 'пнд', tue: 'аўт', wed: 'сер', thu: 'чцв', fri: 'пят', sat: 'суб', sun: 'няд', monday: 'панядзелак', tuesday: 'аўторак', wednesday: 'серада', thursday: 'чацьвер', friday: 'пятніца', saturday: 'субота', sunday: 'нядзеля', january: 'студзень', february: 'люты', march: 'сакавік', april: 'красавік', may: 'травень', june: 'чэрвень', july: 'ліпень', august: 'жнівень', september: 'верасень', october: 'кастрычнік', november: 'лістапад', december: 'снежань',
     },
