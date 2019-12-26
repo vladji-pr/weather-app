@@ -15,12 +15,14 @@ export default class Speech {
 
   speechStart() {
     return new Promise((resolve) => {
+      this.interface.aniamtionMicrophone();
       this.recognition.start();
 
       this.recognition.addEventListener('end', () => {
         if (this.transcript) {
           this.interface.insertSpeechRequest(this.transcript);
         }
+        this.interface.aniamtionMicrophone();
         resolve(this.transcript);
       }, { once: true });
     });

@@ -74,6 +74,7 @@ export default class Layout {
     this.langList = document.querySelector('.lang-list');
     this.langBtn = document.querySelector('.btn-controls_lang');
     this.searchField = document.querySelector('.search-field');
+    this.speechBtn = document.querySelector('.speech-btn');
   }
 
   insertBackground(imgUrl) {
@@ -157,6 +158,10 @@ export default class Layout {
 
   insertSpeechRequest(request) {
     this.searchField.value = request;
+  }
+
+  aniamtionMicrophone() {
+    this.speechBtn.classList.toggle('mic-animation');
   }
 
   insertWeatherIcon(elem, icon) {
