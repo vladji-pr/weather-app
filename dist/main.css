@@ -182,9 +182,13 @@ button {
 
 .btn-controls_image {
   width: 50px;
-  margin-right: 10px;
-  background-image: url(65e6b1ff1a2d84e6b3026523a0f4624f.png);
-  background-size: cover;
+  margin-right: 13px;
+}
+
+.btn-controls_image i {
+  font-size: 53px;
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
 }
 
 .expand-list-wrapper {
@@ -297,6 +301,15 @@ button {
 
 .control-search-wrap input::-webkit-input-placeholder {
   color: #fff;
+}
+
+.speech-btn {
+  color: #fff;
+  background-color: #cccccc80;
+}
+
+.speech-btn i {
+  padding: 12px 20px;
 }
 
 .btn-search {
