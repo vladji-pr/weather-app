@@ -61,7 +61,8 @@ export default class Controller {
   }
 
   async setBackground() {
-    const imgUrl = await this.model.getPhotoData();
+    let imgUrl = await this.model.getPhotoData();
+    if (!imgUrl) imgUrl = 'http://www.animalslook.com/media/very-cute-and-funny-dog-selfies/very-cute-and-funny-dog-selfies-5.jpg';
     this.interface.insertBackground(imgUrl);
   }
 
