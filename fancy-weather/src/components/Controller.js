@@ -7,6 +7,7 @@ export default class Controller {
     this.searchField = document.querySelector('.search-field');
     this.searchBtn = document.querySelector('.btn-search');
     this.store = {};
+    this.isOnAir = false;
     this.eventListener();
   }
 
@@ -124,8 +125,12 @@ export default class Controller {
         mode.checkDeg(deg);
       },
       async userSpeech() {
-        await speech.speechStart();
-        control.start();
+        if (!control.isOnAir) {
+          control.isOnAir = true;
+          const result = await speech.speechStart();
+          if (result) control.start();
+          control.isOnAir = false;
+        }
       },
     };
 

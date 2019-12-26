@@ -16,9 +16,12 @@ export default class Speech {
   speechStart() {
     return new Promise((resolve) => {
       this.recognition.start();
+
       this.recognition.addEventListener('end', () => {
-        this.interface.insertSpeechRequest(this.transcript);
-        resolve();
+        if (this.transcript) {
+          this.interface.insertSpeechRequest(this.transcript);
+        }
+        resolve(this.transcript);
       }, { once: true });
     });
   }
