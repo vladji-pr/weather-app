@@ -2,8 +2,7 @@ export default class Speech {
   constructor(layout) {
     this.interface = layout;
     this.recognition = new (window.SpeechRecognition
-      || window.webkitSpeechRecognition || window.mozSpeechRecognition
-      || window.msSpeechRecognition)();
+      || window.webkitSpeechRecognition)();
     this.recognition.interimResults = true;
     this.recognition.lang = 'en';
 
