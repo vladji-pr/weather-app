@@ -46,7 +46,7 @@ export default class Model {
     this.weatherApi = 'https://api.darksky.net/forecast/987251c0ee515463cce9f694cf4913ad/';
     this.geoLocationApi = 'https://api.opencagedata.com/geocode/v1/json?key=5664a8feeeba4d4e8b5539b7302c030b&limit=1&q=';
     this.flickrApi = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=6d8839cf3d1f3f327ed534addae2a1af&format=json&nojsoncallback=1&per_page=25&tag_mode=all&sort=relevance&geo_context=2&content_type=1&media=photos&tags=';
-    this.unsplashApi = 'https://api.unsplash.co/photos/random?per_page=1&client_id=76e02e7b52a90f9aeedee595901a91ad8a6e98072539f05ba2420e24b6a4fa75';
+    this.unsplashApi = 'https://api.unsplash.com/photos/random?per_page=1&client_id=76e02e7b52a90f9aeedee595901a91ad8a6e98072539f05ba2420e24b6a4fa75';
     this.weatherApiUnits = 'si';
     this.wetherApiExclude = 'minutely,hourly,alerts';
     this.lang = 'en';
