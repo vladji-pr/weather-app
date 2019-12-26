@@ -24,10 +24,6 @@ export default class Layout {
   }
 
   static setHead() {
-    const mapCSS = document.createElement('link');
-    mapCSS.href = 'https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css';
-    mapCSS.rel = 'stylesheet';
-
     const metaViewport = document.createElement('meta');
     metaViewport.name = 'viewport';
     metaViewport.content = 'width=device-width, initial-scale=1.0';
@@ -36,13 +32,24 @@ export default class Layout {
     metaCompatible.httpEquiv = 'X-UA-Compatible';
     metaCompatible.content = 'ie=edge';
 
-    document.head.append(metaViewport, metaCompatible, mapCSS);
+    const mapCSS = document.createElement('link');
+    mapCSS.href = 'https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css';
+    mapCSS.rel = 'stylesheet';
+
+    const fontAwe = document.createElement('link');
+    fontAwe.rel = 'stylesheet';
+    fontAwe.href = 'https://kit-free.fontawesome.com/releases/latest/css/free.min.css';
+    fontAwe.media = 'all';
+
+    document.head.append(metaViewport, metaCompatible, mapCSS, fontAwe);
   }
 
   controlsRender() {
     const markup = `
         <div class="control-bnt-wrap">
-          <button class="btn-controls btn-controls_image" data-action="switchImg"></button>
+          <button class="btn-controls btn-controls_image">
+            <i class="fas fa-image" data-action="switchImg"></i>
+          </button>
           <div class="expand-list-wrapper">
             <button class="btn-controls btn-controls_lang" data-lang-val="en" data-action="expandLangMenu">en</button>
             <div class="expand-list-container">
@@ -57,6 +64,7 @@ export default class Layout {
         </div>
         <div class="control-search-wrap"> 
           <input class="search-field" type="text" placeholder="">
+          <div class="speech-btn"><i class="fas fa-microphone" data-action="userSpeech"></i></div>
           <button class="btn-controls btn-search" data-lang="bntSearch" data-action="userSearch">search</button>
         </div>
     `;
@@ -145,6 +153,10 @@ export default class Layout {
     this.langDependElements = document.querySelectorAll('[data-lang]');
     this.elementBel = document.querySelectorAll('[data-bel]');
     this.elementTemperature = document.querySelectorAll('[data-temp]');
+  }
+
+  insertSpeechRequest(request) {
+    this.searchField.value = request;
   }
 
   insertWeatherIcon(elem, icon) {

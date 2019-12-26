@@ -20,9 +20,12 @@
 
 .btn-controls_image {
   width: 50px;
-  margin-right: 10px;
-  background-image: url("../assets/img/icon-change-image.png");
-  background-size: cover;
+  margin-right: 13px;
+
+  i {
+    font-size: 53px;
+    transform: translateY(-6px);
+  }
 }
 
 .expand-list-wrapper {
@@ -119,6 +122,15 @@
     &::-webkit-input-placeholder {
       color: #fff;
     }
+  }
+}
+
+.speech-btn {
+  color: #fff;
+  background-color: #cccccc80;
+
+  i {
+    padding: 12px 20px;
   }
 }
 
