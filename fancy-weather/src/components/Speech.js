@@ -14,6 +14,7 @@ export default class Speech {
   }
 
   speechStart() {
+    this.transcript = null;
     return new Promise((resolve) => {
       this.interface.aniamtionMicrophone();
       this.recognition.start();
