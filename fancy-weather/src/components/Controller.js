@@ -1,11 +1,13 @@
 export default class Controller {
-  constructor(layout, model) {
+  constructor(layout, model, speech) {
     this.interface = layout;
     this.model = model;
+    this.speechRequest = speech;
     this.controlPanel = document.querySelector('.controls-block');
     this.searchField = document.querySelector('.search-field');
     this.searchBtn = document.querySelector('.btn-search');
     this.store = {};
+    this.isOnAir = false;
     this.eventListener();
   }
 
@@ -48,11 +50,11 @@ export default class Controller {
     this.interface.mainContentRender(weatherData);
     this.setBackground();
 
-    const langObj = this.model.getLang();
-    this.interface.setContentLang(langObj);
+    this.interface.setContentLang(this.model.lang);
 
-    if (this.model.lang === 'be') this.interface.setBelLang(langObj);
+    if (this.model.lang === 'be') this.interface.setBelLang('be');
     if (this.model.tempDeg === 'fahrenheit') this.interface.switchDeg('fahrenheit');
+    this.speechRequest.recognition.lang = this.model.lang;
 
     this.model.clockInit(this.interface);
     this.model.initMap();
@@ -83,21 +85,24 @@ export default class Controller {
       if (!e.target.closest('.expand-list-wrapper') && this.interface.isLangListExpand) {
         this.interface.langMenuToggle();
       }
-    });
-  }
 
-  static errorEvent(errorElem) {
-    document.addEventListener('click', (e) => {
-      if (e.target !== errorElem) {
-        errorElem.remove();
+      if (e.target.matches('.btn-close-modal')) {
+        const errorBlock = e.target.closest('.error-block');
+        errorBlock.remove();
       }
-    }, { once: true });
+
+      if (e.target.closest('.prevent-show')) {
+        const elemPrevent = e.target.closest('.prevent-show');
+        this.model.preventErrorShow = elemPrevent.firstChild.checked;
+      }
+    });
   }
 
   handlerEvent(action, elem) {
     const control = this;
     const view = this.interface;
     const mode = this.model;
+    const speech = this.speechRequest;
 
     const handlers = {
       expandLangMenu() {
@@ -118,6 +123,14 @@ export default class Controller {
       switchDeg() {
         const deg = elem.dataset.degVal;
         mode.checkDeg(deg);
+      },
+      async userSpeech() {
+        if (!control.isOnAir) {
+          control.isOnAir = true;
+          const result = await speech.speechStart();
+          if (result) control.start();
+          control.isOnAir = false;
+        }
       },
     };
 
