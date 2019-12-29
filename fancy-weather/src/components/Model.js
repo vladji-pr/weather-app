@@ -128,6 +128,11 @@ export default class Model {
     return imgUrl;
   }
 
+  resizeImg(data) {
+    const imgUrl = `${data.urls.raw}&fit=clip&w=${this.screenWidth}&h=${this.screenHeight}&auto=format,compress`;
+    return imgUrl;
+  }
+
   getTimeOfDay() {
     let time = +this.timeOfDay;
     if (time >= 21 || time <= 5) time = 'night';
@@ -156,11 +161,6 @@ export default class Model {
     );
     const orientation = (this.screenWidth >= this.screenHeight) ? 'landscape' : 'portrait';
     return orientation;
-  }
-
-  resizeImg(data) {
-    const imgUrl = `${data.urls.raw}&fit=clip&w=${this.screenWidth}&h=${this.screenHeight}&auto=format,compress`;
-    return imgUrl;
   }
 
   contentComposition(rawData) {
