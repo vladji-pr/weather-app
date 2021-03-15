@@ -95,9 +95,9 @@ export default class Model {
     this.getDate();
     let weatherData = null;
     try {
-      const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
+      // const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
       weatherData = fetch(`
-        ${PROXY_URL}${this.weatherApi}${this.location}?exclude=${this.wetherApiExclude}&units=${this.weatherApiUnits}&lang=${this.lang}&time=${this.dateUNIX}
+        ${this.weatherApi}${this.location}?exclude=${this.wetherApiExclude}&units=${this.weatherApiUnits}&lang=${this.lang}&time=${this.dateUNIX}
         `)
         .then((response) => response.json())
         .then((rawData) => {
@@ -111,7 +111,7 @@ export default class Model {
   }
 
   async getPhotoData() {
-    let imgUrl = null;
+    let imgUrl;
     const screenOrientaion = this.getScreenSize();
     const timeOfDay = this.getTimeOfDay();
     const season = this.getSeason();
